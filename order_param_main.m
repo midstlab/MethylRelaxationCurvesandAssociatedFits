@@ -1,226 +1,103 @@
-%n is gonna be index_vector
-n=pdbIndex('dhf-a107f.pdb');
+%n is gonna be index-vector
+n=dhfIndex('dhf-a107f.pdb');
 [a,b]=size(n);
 trj = readdcd('dhf-a107f-50-60ns.dcd');
 ref = trj(1,:);
 [rmsd,trj]=superimpose(ref,trj);
 
-order_p=zeros(159,1);
-for residue=1:159
-    order_p(residue)=corr_func(n(residue,:),residue,trj,10);
-end
-    
-save(sprintf('Methyl_Order_Parameters_WT.dat'),'order_p','-ascii')
-save(sprintf('rmsd.dat'),'rmsd','-ascii')
 
-cd ../60-70ns %2
+order_p=dhf_param_new(n,trj);
 
+cd ../60-70ns
 trj = readdcd('dhf-a107f-60-70ns.dcd');
 ref = trj(1,:);
 [rmsd,trj]=superimpose(ref,trj);
 
-order_p=zeros(159,1);
-for residue=1:159
-    order_p(residue)=corr_func(n(residue,:),residue,trj,10);
-end
-    
-save(sprintf('Methyl_Order_Parameters_WT.dat'),'order_p','-ascii')
-save(sprintf('rmsd.dat'),'rmsd','-ascii')
+order_p=dhf_param_new(n,trj);
 
-cd ../70-80ns %3
-
+cd ../70-80ns
 trj = readdcd('dhf-a107f-70-80ns.dcd');
 ref = trj(1,:);
 [rmsd,trj]=superimpose(ref,trj);
 
-order_p=zeros(159,1);
-for residue=1:159
-    order_p(residue)=corr_func(n(residue,:),residue,trj,10);
-end
-    
-save(sprintf('Methyl_Order_Parameters_WT.dat'),'order_p','-ascii')
-save(sprintf('rmsd.dat'),'rmsd','-ascii')
-
-cd ../80-90ns %4
+order_p=dhf_param_new(n,trj);
+cd ../80-90ns
 
 trj = readdcd('dhf-a107f-80-90ns.dcd');
 ref = trj(1,:);
 [rmsd,trj]=superimpose(ref,trj);
+order_p=dhf_param_new(n,trj);
 
-order_p=zeros(159,1);
-for residue=1:159
-    order_p(residue)=corr_func(n(residue,:),residue,trj,10);
-end
-    
-save(sprintf('Methyl_Order_Parameters_WT.dat'),'order_p','-ascii')
-save(sprintf('rmsd.dat'),'rmsd','-ascii')
-
-cd ../90-100ns %5
-
+cd ../90-100ns
 trj = readdcd('dhf-a107f-90-100ns.dcd');
 ref = trj(1,:);
 [rmsd,trj]=superimpose(ref,trj);
+order_p=dhf_param_new(n,trj);
 
-order_p=zeros(159,1);
-for residue=1:159
-    order_p(residue)=corr_func(n(residue,:),residue,trj,10);
-end
-    
-save(sprintf('Methyl_Order_Parameters_WT.dat'),'order_p','-ascii')
-save(sprintf('rmsd.dat'),'rmsd','-ascii')
-
-cd ../100-110ns %6
-
+cd ../100-110ns
 trj = readdcd('dhf-a107f-100-110ns.dcd');
 ref = trj(1,:);
 [rmsd,trj]=superimpose(ref,trj);
+order_p=dhf_param_new(n,trj);
 
-order_p=zeros(159,1);
-for residue=1:159
-    order_p(residue)=corr_func(n(residue,:),residue,trj,10);
-end
-    
-save(sprintf('Methyl_Order_Parameters_WT.dat'),'order_p','-ascii')
-save(sprintf('rmsd.dat'),'rmsd','-ascii')
-
-cd ../110-120ns %7
-
+cd ../110-120ns
 trj = readdcd('dhf-a107f-110-120ns.dcd');
 ref = trj(1,:);
 [rmsd,trj]=superimpose(ref,trj);
+order_p=dhf_param_new(n,trj);
 
-order_p=zeros(159,1);
-for residue=1:159
-    order_p(residue)=corr_func(n(residue,:),residue,trj,10);
-end
-    
-save(sprintf('Methyl_Order_Parameters_WT.dat'),'order_p','-ascii')
-save(sprintf('rmsd.dat'),'rmsd','-ascii')
-
-cd ../120-130ns %8
-
+cd ../120-130ns
 trj = readdcd('dhf-a107f-120-130ns.dcd');
 ref = trj(1,:);
 [rmsd,trj]=superimpose(ref,trj);
+order_p=dhf_param_new(n,trj);
 
-order_p=zeros(159,1);
-for residue=1:159
-    order_p(residue)=corr_func(n(residue,:),residue,trj,10);
-end
-    
-save(sprintf('Methyl_Order_Parameters_WT.dat'),'order_p','-ascii')
-save(sprintf('rmsd.dat'),'rmsd','-ascii')
-
-cd ../130-140ns %9
-
+cd ../130-140ns
 trj = readdcd('dhf-a107f-130-140ns.dcd');
 ref = trj(1,:);
 [rmsd,trj]=superimpose(ref,trj);
+order_p=dhf_param_new(n,trj);
 
-order_p=zeros(159,1);
-for residue=1:159
-    order_p(residue)=corr_func(n(residue,:),residue,trj,10);
-end
-    
-save(sprintf('Methyl_Order_Parameters_WT.dat'),'order_p','-ascii')
-save(sprintf('rmsd.dat'),'rmsd','-ascii')
-
-
-
-cd ../140-150ns %10
-
+cd ../140-150ns
 trj = readdcd('dhf-a107f-140-150ns.dcd');
 ref = trj(1,:);
 [rmsd,trj]=superimpose(ref,trj);
+order_p=dhf_param_new(n,trj);
 
-order_p=zeros(159,1);
-for residue=1:159
-    order_p(residue)=corr_func(n(residue,:),residue,trj,10);
-end
-    
-save(sprintf('Methyl_Order_Parameters_WT.dat'),'order_p','-ascii')
-save(sprintf('rmsd.dat'),'rmsd','-ascii')
-
-cd ../150-160ns %11
-
+cd ../150-160ns
 trj = readdcd('dhf-a107f-150-160ns.dcd');
 ref = trj(1,:);
 [rmsd,trj]=superimpose(ref,trj);
+order_p=dhf_param_new(n,trj);
 
-order_p=zeros(159,1);
-for residue=1:159
-    order_p(residue,:)=corr_func(n(residue,:),residue,trj,10);
-end
-    
-save(sprintf('Methyl_Order_Parameters_WT.dat'),'order_p','-ascii')
-save(sprintf('rmsd.dat'),'rmsd','-ascii')
-
-cd ../160-170ns %12
-
+cd ../160-170ns
 trj = readdcd('dhf-a107f-160-170ns.dcd');
 ref = trj(1,:);
 [rmsd,trj]=superimpose(ref,trj);
+order_p=dhf_param_new(n,trj);
 
-order_p=zeros(159,1);
-for residue=1:159
-    order_p(residue)=corr_func(n(residue,:),residue,trj,10);
-end
-    
-save(sprintf('Methyl_Order_Parameters_WT.dat'),'order_p','-ascii')
-save(sprintf('rmsd.dat'),'rmsd','-ascii')
-
-cd ../170-180ns %13
-
+cd ../170-180ns
 trj = readdcd('dhf-a107f-170-180ns.dcd');
 ref = trj(1,:);
 [rmsd,trj]=superimpose(ref,trj);
 
-order_p=zeros(159,1);
-for residue=1:159
-    order_p(residue)=corr_func(n(residue,:),residue,trj,10);
-end
-    
-save(sprintf('Methyl_Order_Parameters_WT.dat'),'order_p','-ascii')
-save(sprintf('rmsd.dat'),'rmsd','-ascii')
+order_p=dhf_param_new(n,trj);
 
-cd ../180-190ns %14
-
+cd ../180-190ns
 trj = readdcd('dhf-a107f-180-190ns.dcd');
 ref = trj(1,:);
 [rmsd,trj]=superimpose(ref,trj);
+order_p=dhf_param_new(n,trj);
 
-order_p=zeros(159,1);
-for residue=1:159
-    order_p(residue)=corr_func(n(residue,:),residue,trj,10);
-end
-    
-save(sprintf('Methyl_Order_Parameters_WT.dat'),'order_p','-ascii')
-save(sprintf('rmsd.dat'),'rmsd','-ascii')
-
-cd ../190-200ns %15
-
+cd ../190-200ns
 trj = readdcd('dhf-a107f-190-200ns.dcd');
 ref = trj(1,:);
 [rmsd,trj]=superimpose(ref,trj);
+order_p=dhf_param_new(n,trj);
 
-order_p=zeros(159,1);
-for residue=1:159
-    order_p(residue)=corr_func(n(residue,:),residue,trj,10);
-end
-    
-save(sprintf('Methyl_Order_Parameters_WT.dat'),'order_p','-ascii')
-save(sprintf('rmsd.dat'),'rmsd','-ascii')
-
-cd ../200-210ns %16
-
+cd ../200-210ns
 trj = readdcd('dhf-a107f-200-210ns.dcd');
 ref = trj(1,:);
 [rmsd,trj]=superimpose(ref,trj);
+order_p=dhf_param_new(n,trj);
 
-order_p=zeros(159,1);
-for residue=1:159
-    order_p(residue)=corr_func(n(residue,:),residue,trj,10);
-end
-    
-save(sprintf('Methyl_Order_Parameters_WT.dat'),'order_p','-ascii')
-save(sprintf('rmsd.dat'),'rmsd','-ascii')
