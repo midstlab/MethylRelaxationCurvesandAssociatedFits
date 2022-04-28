@@ -2,7 +2,7 @@ function [ corr_func ] = corr_func( index_list,resid,trj,x )
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 [m,n]=size(trj);
-tao=x*500;
+tao=x*500; % tau is kept as tao here due to a romantic inspiration.
 
 second_op_axis=zeros(tao,1);
 if index_list(1)==0
