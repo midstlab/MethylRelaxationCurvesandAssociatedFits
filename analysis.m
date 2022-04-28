@@ -1,10 +1,10 @@
 corr_average=struct;
 
-s=load('corr_data.mat');
+s=load("corr_data.mat");
 [a,b]=size(s.corr);
-[c,d]=size(s.corr(1).C6_C9);
+[c,d]=size(s.corr(1).C5_C7);
 
-for i=1:8
+for i=1:2
     corr_average(i).Func=zeros(5000,1);
     corr_average(i).Std=zeros(5000,1);
     corr_average(i).StdErr=zeros(5000,1);
@@ -12,37 +12,13 @@ end
 
 
 for j=1:5000
-    corr_average(1).Func(j)=mean(s.corr.C6_C9(j,:));
-    corr_average(1).Std(j)=std(s.corr.C6_C9(j,:));
-    corr_average(1).StdErr(j)=std(s.corr.C6_C9(j,:))/sqrt(length(s.corr.C6_C9(j,:)));
+    corr_average(1).Func(j)=mean(s.corr.C5_C7(j,:));
+    corr_average(1).Std(j)=std(s.corr.C5_C7(j,:));
+    corr_average(1).StdErr(j)=std(s.corr.C5_C7(j,:))/sqrt(length(s.corr.C5_C7(j,:)));
     
-    corr_average(2).Func(j)=mean(s.corr.C9_N10(j,:));
-    corr_average(2).Std(j)=std(s.corr.C9_N10(j,:));
-    corr_average(2).StdErr(j)=std(s.corr.C9_N10(j,:))/sqrt(length(s.corr.C9_N10(j,:)));
-    
-    corr_average(3).Func(j)=mean(s.corr.CG_CD(j,:));
-    corr_average(3).Std(j)=std(s.corr.CG_CD(j,:));
-    corr_average(3).StdErr(j)=std(s.corr.CG_CD(j,:))/sqrt(length(s.corr.CG_CD(j,:))); 
-    
-    corr_average(4).Func(j)=mean(s.corr.CT_CA(j,:));
-    corr_average(4).Std(j)=std(s.corr.CT_CA(j,:));
-    corr_average(4).StdErr(j)=std(s.corr.CT_CA(j,:))/sqrt(length(s.corr.CT_CA(j,:)));
-    
-    corr_average(5).Func(j)=mean(s.corr.N3_C4(j,:));
-    corr_average(5).Std(j)=std(s.corr.N3_C4(j,:));
-    corr_average(5).StdErr(j)=std(s.corr.N3_C4(j,:))/sqrt(length(s.corr.N3_C4(j,:)));
-    
-    corr_average(6).Func(j)=mean(s.corr.N8_C7(j,:));
-    corr_average(6).Std(j)=std(s.corr.N8_C7(j,:));
-    corr_average(6).StdErr(j)=std(s.corr.N8_C7(j,:))/sqrt(length(s.corr.N8_C7(j,:)));
-    
-    corr_average(7).Func(j)=mean(s.corr.NA2_C2(j,:));
-    corr_average(7).Std(j)=std(s.corr.NA2_C2(j,:));
-    corr_average(7).StdErr(j)=std(s.corr.NA2_C2(j,:))/sqrt(length(s.corr.NA2_C2(j,:)));
-    
-    corr_average(8).Func(j)=mean(s.corr.O_C(j,:));
-    corr_average(8).Std(j)=std(s.corr.O_C(j,:));
-    corr_average(8).StdErr(j)=std(s.corr.O_C(j,:))/sqrt(length(s.corr.O_C(j,:)));
+    corr_average(2).Func(j)=mean(s.corr.C7_C1P(j,:));
+    corr_average(2).Std(j)=std(s.corr.C7_C1P(j,:));
+    corr_average(2).StdErr(j)=std(s.corr.C7_C1P(j,:))/sqrt(length(s.corr.C7_C1P(j,:)));
     
 end
 
@@ -50,7 +26,7 @@ save('corr_average','corr_average')
 %OP Estimation
 
 
-for i=1:8
+for i=1:2
     order_parameter(i)=mean(corr_average(i).Func(1500:end));
 end
 order_parameter=order_parameter';
@@ -58,9 +34,9 @@ save('order_parameter','order_parameter')
 
 load('corr_average.mat');
 load('order_parameter.mat');
-exact_order=zeros(8,1);
-exact_std=zeros(8,1);
-exact_error=zeros(8,1);
+exact_order=zeros(2,1);
+exact_std=zeros(2,1);
+exact_error=zeros(2,1);
 
 
     
@@ -69,14 +45,14 @@ end_Parameters.Order=order_parameter;
 end_Parameters.Std=exact_std;
 end_Parameters.Error=exact_error;
 
-tao_fast=zeros(8,1);
-tao_slow=zeros(8,1);
-beta=zeros(8,1);
+tao_fast=zeros(2,1);
+tao_slow=zeros(2,1);
+beta=zeros(2,1);
 
 xdata=linspace(0,7,3500);
 xdata=xdata';
 
-for i=1:8
+for i=1:2
     s=order_parameter(i);
     ydata=corr_average(i).Func(1:3500);
     
@@ -114,7 +90,7 @@ load('End_Parameters.mat')
 load('corr_average.mat')
 
 
-for i=1:8
+for i=1:2
     ydata=corr_average(i).Func(1:3500);
     xdata=linspace(0,7,3500);
     s=Order(i);
